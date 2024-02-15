@@ -24,12 +24,11 @@ class DatasetLoader():
         # Load the dataset
         print('Loading and preprocessing the dataset ...')
         print(self.dataset_name)
-        if 'covid_qa_deepset' in self.dataset_name:
+        if 'covid-qa' in self.dataset_name:
             # Load and split
             dataset = load_dataset(self.dataset_name)
-            dataset = dataset['train'].train_test_split(test_size=0.1)
             train_dataset = dataset['train']
-            validation_dataset_raw = dataset['test']
+            validation_dataset_raw = dataset['validation']
             
             # Preprocess for model training
             train_dataset = train_dataset.map(
@@ -37,13 +36,18 @@ class DatasetLoader():
                 batched=True,
                 remove_columns=train_dataset.column_names,
             )
+            validation_dataset_for_loss = validation_dataset_raw.map(
+                self.preprocess_training_examples,
+                batched=True,
+                remove_columns=validation_dataset_raw.column_names,
+            )
             validation_dataset = validation_dataset_raw.map(
                 self.preprocess_validation_examples,
                 batched=True,
                 remove_columns=validation_dataset_raw.column_names,
             )
             
-        return train_dataset, validation_dataset, validation_dataset_raw
+        return train_dataset, validation_dataset, validation_dataset_for_loss, validation_dataset_raw
 
     def preprocess_training_examples(self, examples):
         questions = [q.strip() for q in examples["question"]]

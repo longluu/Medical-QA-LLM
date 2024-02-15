@@ -7,7 +7,7 @@ The purpose of this repositories is to train LLMs on extractive Question-Answeri
 
 # 2. Dataset
 ## 2.1. COVID-QA
-This dataset contains question - answer pairs regarding COVID-19. The dataset can be found here: https://github.com/deepset-ai/COVID-QA. 
+This dataset contains 2,019 question/answer pairs annotated by volunteer biomedical experts on scientific articles regarding COVID-19 and other medical issues. The dataset can be found here: https://github.com/deepset-ai/COVID-QA. The preprocessed data can be found here https://huggingface.co/datasets/covid_qa_deepset.
 
 ## 2.2 BioASQ
 
@@ -18,6 +18,18 @@ You also need to install the repo as a package `pip install -e .`.
 
 ## 3.2 Run the code
 An example to run the training code is
+```
+python src/models/train_model.py \
+--model_name 'UFNLP/gatortrons' \
+--data_dir 'covid_qa_deepset' \
+--max_length 512 \
+--doc_stride 250 \
+--batch_size 4 \
+--num_train_epochs 2 \
+--learning_rate 3e-5 \
+--weight_decay 0.0 \
+--outdir "/home/ec2-user/SageMaker/Medical-QA-extractive/models/COVID-QA/gatortrons/"
+```
 
 # 4. Results
 The fine-tuned models and brief results can be found at my huggingface page https://huggingface.co/longluu.
