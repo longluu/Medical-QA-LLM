@@ -19,16 +19,19 @@ You also need to install the repo as a package `pip install -e .`.
 ## 3.2 Run the code
 An example to run the training code is
 ```
-python src/models/train_model.py \
---model_name 'UFNLP/gatortrons' \
---data_dir 'covid_qa_deepset' \
---max_length 512 \
---doc_stride 250 \
---batch_size 4 \
---num_train_epochs 2 \
---learning_rate 3e-5 \
---weight_decay 0.0 \
---outdir "/home/ec2-user/SageMaker/Medical-QA-extractive/models/COVID-QA/gatortrons/"
+python src/models/run_qa.py \
+    --model_name_or_path 'UFNLP/gatortrons' \
+    --dataset_name 'longluu/covid-qa-split' \
+    --do_train \
+    --do_eval\
+    --per_device_train_batch_size 4 \
+    --learning_rate 3e-5 \
+    --num_train_epochs 2 \
+    --max_seq_length 512 \
+    --doc_stride 250 \
+    --max_answer_length 200 \
+    --output_dir "/home/ec2-user/SageMaker/Medical-QA-extractive/models/COVID-QA/gatortrons/" \
+    --overwrite_output_dir
 ```
 
 # 4. Results
