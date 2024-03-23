@@ -8,4 +8,5 @@ accelerate==0.26.1
 evaluate==0.4.1
 haystack-ai==2.0.0
 sentence-transformers==2.5.1
+bitsandbytes==0.43.0
 -e .
