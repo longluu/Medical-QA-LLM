@@ -10,6 +10,15 @@ The purpose of this repositories is to train LLMs on extractive Question-Answeri
 This dataset contains 2,019 question/answer pairs annotated by volunteer biomedical experts on scientific articles regarding COVID-19 and other medical issues. The dataset can be found here: https://github.com/deepset-ai/COVID-QA. The preprocessed data can be found here https://huggingface.co/datasets/covid_qa_deepset.
 
 ## 2.2 BioASQ
+This dataset consists of many biomedical tasks. For QA, they have a dataset with question-answer pairs on PubMed articles.
+>Task 9B will use benchmark datasets containing development and test questions, in English, along with gold standard (reference) answers. The benchmark datasets are being constructed by a team of biomedical experts from around Europe.
+The benchmark datasets contain four types of questions:
+Yes/no questions: These are questions that, strictly speaking, require "yes" or "no" answers, though of course in practice longer answers will often be desirable. For example, "Do CpG islands colocalise with transcription start sites?" is a yes/no question.
+Factoid questions: These are questions that, strictly speaking, require a particular entity name (e.g., of a disease, drug, or gene), a number, or a similar short expression as an answer, though again a longer answer may be desirable in practice. For example, "Which virus is best known as the cause of infectious mononucleosis?" is a factoid question.
+List questions: These are questions that, strictly speaking, require a list of entity names (e.g., a list of gene names), numbers, or similar short expressions as an answer; again, in practice additional information may be desirable. For example, "Which are the Raf kinase inhibitors?" is a list question.
+Summary questions: These are questions that do not belong in any of the previous categories and can only be answered by producing a short text summarizing the most prominent relevant information. For example, "What is the treatment of infectious mononucleosis?" is a summary question.
+
+More details can be found here: http://participants-area.bioasq.org/general_information/Task9b/
 
 # 3. Training setup
 ## 3.1 Environment
