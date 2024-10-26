@@ -38,7 +38,17 @@ More details can be found here: http://participants-area.bioasq.org/general_info
 # 3. Training setup
 ## 3.1 Environment
 Here I use Python version 3.9.2. All the dependencies are listed in requirements.txt.
-You also need to install the repo as a package `pip install -e .`.
+Create, activate virtual env (Windows) and install all packages:
+```
+py -3.9 -m venv venv
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+```
+If you have GPU, you have to install cuda torch as well
+```
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117
+```
 
 ## 3.2 Run the code
 An example to run the training code is

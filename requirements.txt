@@ -10,4 +10,6 @@ evaluate==0.4.1
 haystack-ai==2.0.0
 sentence-transformers==2.5.1
 bitsandbytes==0.43.0
+fsspec==2023.10.0
+numpy==1.26.4
 -e .
